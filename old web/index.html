@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>TOXL | Save Money & Energy</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<style>
+		html { scroll-behavior: smooth; }
+	</style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 antialiased">
+	<div class="bg-yellow-400 text-zinc-950 border-b border-yellow-300">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-3 text-sm font-medium">
+			<div class="flex flex-wrap items-center gap-4">
+				<p>📞 07700467159</p>
+				<p data-i18n="topbarAddress">📍 شارع الصناعة - بغداد</p>
+			</div>
+			<a href="https://wa.me/9647700467159" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-950 text-yellow-300 hover:bg-zinc-900" data-i18n="topbarWhatsapp">راسلنا على واتساب</a>
+		</div>
+	</div>
+	<header class="sticky top-0 z-50 backdrop-blur bg-zinc-950/80 border-b border-zinc-800">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+			<a href="#home" class="flex items-center gap-3">
+				<div class="w-9 h-9 rounded-lg bg-yellow-400 text-zinc-900 font-black grid place-items-center">T</div>
+				<div>
+					<p class="font-bold text-lg leading-none">TOXL</p>
+					<p class="text-xs text-zinc-400" data-i18n="tagline">وفر المال والطاقة</p>
+				</div>
+			</a>
+			<nav class="hidden md:flex items-center gap-6 text-sm text-zinc-300">
+				<a href="#home" class="hover:text-yellow-400" data-i18n="navHome">الرئيسية</a>
+				<a href="#products" class="hover:text-yellow-400" data-i18n="navProducts">المنتجات</a>
+				<a href="#specs" class="hover:text-yellow-400" data-i18n="navSpecs">المواصفات الفنية</a>
+				<a href="#contact" class="hover:text-yellow-400" data-i18n="navContact">تواصل معنا</a>
+			</nav>
+			<button id="langToggle" class="text-sm px-3 py-1.5 rounded-md border border-zinc-700 hover:border-yellow-400 hover:text-yellow-400">EN</button>
+		</div>
+	</header>
+
+	<main>
+		<section id="home" class="relative overflow-hidden">
+			<div class="absolute inset-0 bg-gradient-to-b from-yellow-500/10 via-transparent to-transparent"></div>
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative">
+				<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-300 text-xs">
+					<span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+					<span data-i18n="heroBadge">حلول كهربائية وطاقة شمسية موثوقة</span>
+				</span>
+				<h1 class="mt-6 text-4xl md:text-6xl font-extrabold leading-tight" data-i18n="heroTitle">Save Money &amp; Energy مع TOXL</h1>
+				<p class="mt-6 text-zinc-300 max-w-3xl text-lg" data-i18n="heroDesc">نوفر منتجات حماية وتحويل وتوزيع كهربائي عالية الأداء لأنظمة الطاقة الشمسية والتطبيقات الصناعية والسكنية.</p>
+				<div class="mt-8 grid sm:grid-cols-3 gap-4 max-w-4xl">
+					<div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+						<p class="text-yellow-400 text-sm" data-i18n="statProductsLabel">المنتجات</p>
+						<p class="mt-2 text-2xl font-bold">10+</p>
+					</div>
+					<div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+						<p class="text-yellow-400 text-sm" data-i18n="statLocationLabel">الموقع</p>
+						<p class="mt-2 text-lg font-bold" data-i18n="statLocationValue">شارع الصناعة</p>
+					</div>
+					<div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+						<p class="text-yellow-400 text-sm" data-i18n="statContactLabel">التواصل</p>
+						<p class="mt-2 text-lg font-bold">WhatsApp</p>
+					</div>
+				</div>
+				<div class="mt-8 flex flex-wrap gap-3">
+					<a href="#products" class="px-5 py-3 rounded-lg bg-yellow-400 text-zinc-900 font-semibold hover:bg-yellow-300" data-i18n="heroBtnProducts">استعرض المنتجات</a>
+					<a href="https://wa.me/9647700467159" target="_blank" rel="noreferrer" class="px-5 py-3 rounded-lg border border-zinc-700 hover:border-yellow-400" data-i18n="heroBtnContact">اطلب عبر واتساب</a>
+				</div>
+			</div>
+		</section>
+
+		<section id="quick-access" class="py-8 border-t border-zinc-900 bg-zinc-900/40">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-4">
+				<a href="#products" class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 hover:border-yellow-400 transition">
+					<p class="text-yellow-400 font-semibold" data-i18n="quickProductsTitle">استعراض سريع</p>
+					<p class="mt-2 text-zinc-300 text-sm" data-i18n="quickProductsDesc">اذهب مباشرة إلى المنتجات الرئيسية والفئات المتوفرة.</p>
+				</a>
+				<a href="#catalog-preview" class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 hover:border-yellow-400 transition">
+					<p class="text-yellow-400 font-semibold" data-i18n="quickCatalogTitle">كتالوج المنتجات</p>
+					<p class="mt-2 text-zinc-300 text-sm" data-i18n="quickCatalogDesc">شاهد التفاصيل الفنية والصور لكل منتج.</p>
+				</a>
+				<a href="#contact" class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 hover:border-yellow-400 transition">
+					<p class="text-yellow-400 font-semibold" data-i18n="quickContactTitle">الوصول السريع</p>
+					<p class="mt-2 text-zinc-300 text-sm" data-i18n="quickContactDesc">تواصل على واتساب واعرف موقعنا على الخريطة.</p>
+				</a>
+			</div>
+		</section>
+
+		<section id="products" class="py-16 border-t border-zinc-900">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="mb-10">
+					<h2 class="text-3xl font-bold" data-i18n="productsTitle">المنتجات الرئيسية</h2>
+					<p class="text-zinc-400 mt-2" data-i18n="productsDesc">تصنيف منتجات TOXL وفق الكتالوج المرفق.</p>
+				</div>
+
+				<div class="grid md:grid-cols-2 gap-6">
+					<article class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
+						<div class="text-4xl">⚡</div>
+						<h3 class="mt-4 text-xl font-semibold">DC Circuit Breakers <span class="text-yellow-400">TOXLS3-63DC</span></h3>
+						<p class="mt-2 text-zinc-400" data-i18n="dcDesc">قواطع تيار مستمر مخصصة لأنظمة الطاقة الشمسية.</p>
+						<ul class="mt-4 space-y-2 text-sm text-zinc-300 list-disc pr-5" id="dcList">
+							<li>Poles: 1P, 2P, 3P, 4P</li>
+							<li>Ue: up to 1000V DC</li>
+							<li>In: 6A–63A</li>
+							<li>Protection: IP20</li>
+						</ul>
+					</article>
+
+					<article class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
+						<div class="text-4xl">🧰</div>
+						<h3 class="mt-4 text-xl font-semibold">MCCB (DC)</h3>
+						<p class="mt-2 text-zinc-400" data-i18n="mccbDesc">قواطع حالة مصبوبة بآلية فصل حرارية مغناطيسية.</p>
+						<ul class="mt-4 space-y-2 text-sm text-zinc-300 list-disc pr-5" id="mccbList">
+							<li>Rated current: 63A–400A</li>
+							<li>Max operating voltage: 1000V DC (4P)</li>
+							<li>Trip type: Thermal-magnetic</li>
+							<li>Accessories: Auxiliary, Alarm, Shunt trip, Manual/Electric operation</li>
+						</ul>
+					</article>
+
+					<article class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
+						<div class="text-4xl">🔁</div>
+						<h3 class="mt-4 text-xl font-semibold">Automatic Transfer Switches (ATS)</h3>
+						<p class="mt-2 text-zinc-400" data-i18n="atsDesc">تحويل مصدر الطاقة بسرعة وكفاءة لتأمين الاستمرارية.</p>
+						<ul class="mt-4 space-y-2 text-sm text-zinc-300 list-disc pr-5" id="atsList">
+							<li>Rated current: 16A–100A</li>
+							<li>Insulation voltage (Ui): AC690V</li>
+							<li>Transfer speed: &lt; 50ms</li>
+							<li>Electrical life: 2000 cycles, Manual life: 5000 cycles</li>
+						</ul>
+					</article>
+
+					<article class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
+						<div class="text-4xl">📦</div>
+						<h3 class="mt-4 text-xl font-semibold">Distribution Boxes <span class="text-yellow-400">HT Series</span></h3>
+						<p class="mt-2 text-zinc-400" data-i18n="dbDesc">صناديق توزيع عملية للتطبيقات التجارية والسكنية.</p>
+						<ul class="mt-4 space-y-2 text-sm text-zinc-300 list-disc pr-5" id="dbList">
+							<li>Body material: Strong ABS</li>
+							<li>Cover material: Transparent PC</li>
+							<li>Liftable rail for easy wiring in narrow spaces</li>
+							<li>Applications: Factories, homes, shopping centers</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="specs" class="py-16 border-t border-zinc-900 bg-zinc-900/30">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<h2 class="text-3xl font-bold" data-i18n="specsTitle">المواصفات الفنية</h2>
+				<p class="text-zinc-400 mt-2 mb-6" data-i18n="specsDesc">مقارنة سريعة بين الفئات المختلفة.</p>
+
+				<div class="overflow-x-auto rounded-xl border border-zinc-800">
+					<table class="w-full text-sm">
+						<thead class="bg-zinc-800/70 text-zinc-200">
+							<tr>
+								<th class="p-3 text-start" data-i18n="thCategory">الفئة</th>
+								<th class="p-3 text-start" data-i18n="thCurrent">التيار المقنن</th>
+								<th class="p-3 text-start" data-i18n="thVoltage">الجهد</th>
+								<th class="p-3 text-start" data-i18n="thFeatures">أبرز المزايا</th>
+							</tr>
+						</thead>
+						<tbody class="divide-y divide-zinc-800 text-zinc-300">
+							<tr>
+								<td class="p-3">TOXLS3-63DC</td>
+								<td class="p-3">6A–63A</td>
+								<td class="p-3">Up to 1000V DC</td>
+								<td class="p-3" data-i18n="row1Feat">أقطاب 1P–4P، حماية IP20</td>
+							</tr>
+							<tr>
+								<td class="p-3">MCCB (DC)</td>
+								<td class="p-3">63A–400A</td>
+								<td class="p-3">1000V DC (4P)</td>
+								<td class="p-3" data-i18n="row2Feat">Trip حراري مغناطيسي وملحقات متعددة</td>
+							</tr>
+							<tr>
+								<td class="p-3">ATS</td>
+								<td class="p-3">16A–100A</td>
+								<td class="p-3">Ui: AC690V</td>
+								<td class="p-3" data-i18n="row3Feat">سرعة تحويل أقل من 50ms</td>
+							</tr>
+							<tr>
+								<td class="p-3">HT Distribution Box</td>
+								<td class="p-3" data-i18n="row4Current">حسب المقاس</td>
+								<td class="p-3" data-i18n="row4Voltage">حسب التطبيق</td>
+								<td class="p-3" data-i18n="row4Feat">ABS + PC، سكة قابلة للرفع</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+
+		<section id="catalog-preview" class="py-16 border-t border-zinc-900">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="mb-10">
+					<h2 class="text-3xl font-bold" data-i18n="previewTitle">تفاصيل المنتجات</h2>
+					<p class="mt-2 text-zinc-400" data-i18n="previewDesc">استعرض المواصفات الفنية والصور المرجعية لمجموعة من منتجات TOXL المختارة.</p>
+				</div>
+
+				<div class="grid gap-10">
+					<article class="rounded-3xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
+						<div class="grid lg:grid-cols-2 gap-0">
+							<div class="bg-white min-h-[360px] p-8 flex items-center justify-center">
+								<div class="w-full max-w-md aspect-[4/3] rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-100 shadow-inner flex items-center justify-center p-6 overflow-hidden">
+									<img src="assets/images/TOXLS3-63DC.png" alt="TOXLS3-63DC DC Circuit Breaker" class="max-w-full max-h-full object-contain" />
+								</div>
+							</div>
+							<div class="p-6 lg:p-8">
+								<div class="flex items-center gap-3 mb-5">
+									<span class="inline-flex w-10 h-10 rounded-xl bg-yellow-400/15 text-yellow-300 items-center justify-center">⚡</span>
+									<div>
+										<h3 class="text-2xl font-bold">TOXLS3-63DC</h3>
+										<p class="text-zinc-400 text-sm" data-i18n="previewDcLabel">قاطع تيار مستمر لأنظمة الطاقة الشمسية</p>
+									</div>
+								</div>
+
+								<div class="overflow-x-auto rounded-2xl border border-zinc-800">
+									<table class="w-full text-sm">
+										<tbody class="divide-y divide-zinc-800 text-zinc-300">
+											<tr><td class="p-3 font-medium text-zinc-200">Type</td><td class="p-3">TOXLS3-63DC</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Standard</td><td class="p-3">IEC60947-2 / GB14048-2</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Pole</td><td class="p-3">1P / 2P / 3P / 4P</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Rated Working Voltage Ue</td><td class="p-3">DC 250V / 600V / 750V / 1000V</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Max Rated Current</td><td class="p-3">63A</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Rated Current In</td><td class="p-3">6A, 10A, 16A, 20A, 25A, 32A, 40A, 50A, 63A</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Rated Insulated Voltage Ui</td><td class="p-3">DC 1000V</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Rated Impulsed Voltage Uimp</td><td class="p-3">6KV</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Mechanical Life</td><td class="p-3">Actual 20000 / Standard 8500</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Electrical Life</td><td class="p-3">Actual 4000 / Standard 1500</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Isolator Function</td><td class="p-3">Yes</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Ingress Protection</td><td class="p-3">IP20</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Working Temperature</td><td class="p-3">-25℃ ~ +70℃</td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</article>
+
+					<article class="rounded-3xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
+						<div class="grid lg:grid-cols-2 gap-0">
+							<div class="bg-white min-h-[360px] p-8 flex items-center justify-center order-1 lg:order-2">
+								<div class="w-full max-w-md aspect-[4/3] rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-100 shadow-inner flex items-center justify-center p-6 overflow-hidden">
+									<img src="assets/images/MCCB (DC).png" alt="MCCB DC Molded Case Circuit Breaker" class="max-w-full max-h-full object-contain" />
+								</div>
+							</div>
+							<div class="p-6 lg:p-8 order-2 lg:order-1">
+								<div class="flex items-center gap-3 mb-5">
+									<span class="inline-flex w-10 h-10 rounded-xl bg-yellow-400/15 text-yellow-300 items-center justify-center">🧰</span>
+									<div>
+										<h3 class="text-2xl font-bold">MCCB (DC)</h3>
+										<p class="text-zinc-400 text-sm" data-i18n="previewMccbLabel">قاطع حالة مصبوبة بخصائص فصل حرارية مغناطيسية</p>
+									</div>
+								</div>
+
+								<div class="overflow-x-auto rounded-2xl border border-zinc-800">
+									<table class="w-full text-sm">
+										<tbody class="divide-y divide-zinc-800 text-zinc-300">
+											<tr><td class="p-3 font-medium text-zinc-200">Rated Current In(A)</td><td class="p-3">63A, 80A, 100A, 125A, 160A, 200A, 225A, 250A, 320A, 400A</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Ue Rated Operating Voltage</td><td class="p-3">1P 250V / 2P 500V / 3P 750V / 4P 1000V DC</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Rated Insulation Voltage Ui</td><td class="p-3">DC 1000V</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Rated Impact Voltage Uimp</td><td class="p-3">8KV</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Ultimate Breaking Capacity Icu</td><td class="p-3">25KV</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Trip Type</td><td class="p-3">Thermal-magnetic</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Ambient Temperature</td><td class="p-3">-20℃ ~ 70℃</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Altitude</td><td class="p-3">2000M</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Installation</td><td class="p-3">Fixed, plug-in</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Accessories</td><td class="p-3">Auxiliary, Alarm, Shunt release, Manually operated and electric operation</td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</article>
+
+					<article class="rounded-3xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
+						<div class="grid lg:grid-cols-2 gap-0">
+							<div class="bg-white min-h-[360px] p-8 flex items-center justify-center">
+								<div class="w-full max-w-md aspect-[4/3] rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-100 shadow-inner flex items-center justify-center p-6 overflow-hidden">
+									<img src="assets/images/3.png" alt="Automatic Transfer Switch ATS" class="max-w-full max-h-full object-contain" />
+								</div>
+							</div>
+							<div class="p-6 lg:p-8">
+								<div class="flex items-center gap-3 mb-5">
+									<span class="inline-flex w-10 h-10 rounded-xl bg-yellow-400/15 text-yellow-300 items-center justify-center">🔁</span>
+									<div>
+										<h3 class="text-2xl font-bold">Automatic Transfer Switch (ATS)</h3>
+										<p class="text-zinc-400 text-sm" data-i18n="previewAtsLabel">مفتاح تحويل أوتوماتيكي لسرعة التحويل واستمرارية الطاقة</p>
+									</div>
+								</div>
+
+								<div class="overflow-x-auto rounded-2xl border border-zinc-800">
+									<table class="w-full text-sm">
+										<tbody class="divide-y divide-zinc-800 text-zinc-300">
+											<tr><td class="p-3 font-medium text-zinc-200">Specification</td><td class="p-3">100A</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Rated current Ie(A)</td><td class="p-3">16, 20, 25 / 32, 40, 50, 63 / 80, 100</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Insulation voltage Ui</td><td class="p-3">AC690V, 50Hz</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Rated voltage Ue</td><td class="p-3">AC690V, 50Hz</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Classification</td><td class="p-3">PC class: can be manufactured and withstood without short circuit current</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Utilization category</td><td class="p-3">AC-33iB / AC-31B</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Pole No</td><td class="p-3">2P / 3P / 4P</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Weight (kg)</td><td class="p-3">1.7 / 2.1 / 2.6</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Electrical life</td><td class="p-3">Life: 2000 times; Manual operation: 5000 times</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Rated short circuit current Iq</td><td class="p-3">50KA</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Short circuit protection device (fuse)</td><td class="p-3">RT16-00-63A</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Rated impulse withstand voltage</td><td class="p-3">8KV</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Control circuit</td><td class="p-3">Rated control voltage Us: AC220V / 50HZ; Normal working conditions: 85-110% Us</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Auxiliary circuit</td><td class="p-3">2 relays, each with two sets of contact converter; Contact capacity: AC220V / 50HZ Ie = 5y</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Conversion time of contactor</td><td class="p-3">&lt;50ms</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Operation conversion time</td><td class="p-3">&lt;50ms</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Return conversion time</td><td class="p-3">&lt;50ms</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Power off time</td><td class="p-3">&lt;50ms</td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</article>
+
+					<article class="rounded-3xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
+						<div class="grid lg:grid-cols-2 gap-0">
+							<div class="bg-white min-h-[360px] p-8 flex items-center justify-center order-1 lg:order-2">
+								<div class="w-full max-w-md aspect-[4/3] rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-100 shadow-inner flex items-center justify-center p-6 overflow-hidden relative">
+									<img src="assets/images/HT Series Distribution Box.png" alt="HT Series Distribution Box" class="max-w-full max-h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+									<div class="hidden absolute inset-6 rounded-2xl border-2 border-dashed border-zinc-300 text-zinc-500 items-center justify-center text-center p-6">
+										<div>
+											<div class="text-5xl mb-3">📦</div>
+											<p class="font-semibold">HT Series Distribution Box</p>
+											<p class="text-xs mt-2" data-i18n="imageComingSoon">الصورة المرجعية ستظهر هنا</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="p-6 lg:p-8 order-2 lg:order-1">
+								<div class="flex items-center gap-3 mb-5">
+									<span class="inline-flex w-10 h-10 rounded-xl bg-yellow-400/15 text-yellow-300 items-center justify-center">📦</span>
+									<div>
+										<h3 class="text-2xl font-bold">HT Series Distribution Box</h3>
+										<p class="text-zinc-400 text-sm" data-i18n="previewHtLabel">صندوق توزيع بإطار ABS وغطاء شفاف PC للتطبيقات السكنية والتجارية</p>
+									</div>
+								</div>
+
+								<div class="overflow-x-auto rounded-2xl border border-zinc-800">
+									<table class="w-full text-sm">
+										<tbody class="divide-y divide-zinc-800 text-zinc-300">
+											<tr><td class="p-3 font-medium text-zinc-200">General</td><td class="p-3">HT Series lighting box is attractive, durable, safe and widely used in factories, residences, mansions and shopping centers.</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Panel Material</td><td class="p-3">Engineering ABS, high strength, permanent color</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Cover Material</td><td class="p-3">Transparent PC</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Opening Mechanism</td><td class="p-3">Push-type opening and closing with self-locking hinge structure</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Wiring Design</td><td class="p-3">Guide rail support can be lifted to highest movable point for easier installation in narrow spaces</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Model HT-5P</td><td class="p-3">159 × 143 × 91.5 mm / Qty 60</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Model HT-8P</td><td class="p-3">159 × 197 × 91.5 mm / Qty 45</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Model HT-12P</td><td class="p-3">209 × 269 × 91.5 mm / Qty 30</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Model HT-18P</td><td class="p-3">209 × 377 × 91.5 mm / Qty 20</td></tr>
+											<tr><td class="p-3 font-medium text-zinc-200">Model HT-24P</td><td class="p-3">354 × 269 × 91.5 mm / Qty 10</td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</article>
+
+					<article class="rounded-3xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
+						<div class="grid lg:grid-cols-2 gap-0">
+							<div class="bg-white min-h-[360px] p-8 flex items-center justify-center">
+								<div class="w-full max-w-md aspect-[4/3] rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-100 shadow-inner flex items-center justify-center p-6 overflow-hidden relative">
+									<img src="assets/images/PV-TOXL-01 Solar Dc Connector.png" alt="PV-TOXL-01 Solar DC Connector" class="max-w-full max-h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+									<div class="hidden absolute inset-6 rounded-2xl border-2 border-dashed border-zinc-300 text-zinc-500 items-center justify-center text-center p-6"><div><div class="text-5xl mb-3">🔌</div><p class="font-semibold">PV-TOXL-01</p><p class="text-xs mt-2" data-i18n="imageComingSoon">الصورة المرجعية ستظهر هنا</p></div></div>
+								</div>
+							</div>
+							<div class="p-6 lg:p-8">
+								<div class="flex items-center gap-3 mb-5">
+									<span class="inline-flex w-10 h-10 rounded-xl bg-yellow-400/15 text-yellow-300 items-center justify-center">🔌</span>
+									<div>
+										<h3 class="text-2xl font-bold">PV-TOXL-01 Solar DC Connector</h3>
+										<p class="text-zinc-400 text-sm" data-i18n="previewPvLabel">موصلات شمسية DC عالية الاعتمادية للتوصيل الآمن</p>
+									</div>
+								</div>
+								<div class="overflow-x-auto rounded-2xl border border-zinc-800"><table class="w-full text-sm"><tbody class="divide-y divide-zinc-800 text-zinc-300"><tr><td class="p-3 font-medium text-zinc-200">Rated current</td><td class="p-3">30A or 50A</td></tr><tr><td class="p-3 font-medium text-zinc-200">Rated voltage</td><td class="p-3">1000VDC(IEC) / DC(UL)</td></tr><tr><td class="p-3 font-medium text-zinc-200">Ambient temperature range</td><td class="p-3">-40℃ ~ +90℃</td></tr><tr><td class="p-3 font-medium text-zinc-200">Degree of protection</td><td class="p-3">P67 mated / IP2X unmated</td></tr><tr><td class="p-3 font-medium text-zinc-200">Contact resistance</td><td class="p-3">0.5mΩ</td></tr><tr><td class="p-3 font-medium text-zinc-200">Contact material</td><td class="p-3">Copper, tin plated</td></tr><tr><td class="p-3 font-medium text-zinc-200">Locking system</td><td class="p-3">Snap-in (nur/only MC4)</td></tr><tr><td class="p-3 font-medium text-zinc-200">Flame class</td><td class="p-3">UL94-HB / UL94-VO</td></tr><tr><td class="p-3 font-medium text-zinc-200">Cable size</td><td class="p-3">2.5-6mm²</td></tr></tbody></table></div>
+							</div>
+						</div>
+					</article>
+
+					<article class="rounded-3xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
+						<div class="grid lg:grid-cols-2 gap-0">
+							<div class="bg-white min-h-[360px] p-8 flex items-center justify-center order-1 lg:order-2">
+								<div class="w-full max-w-md aspect-[4/3] rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-100 shadow-inner flex items-center justify-center p-6 overflow-hidden relative">
+									<img src="assets/images/PV-TOXL-02 Solar Dc Connector.png" alt="PV-TOXL-02 Solar DC Connector" class="max-w-full max-h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+									<div class="hidden absolute inset-6 rounded-2xl border-2 border-dashed border-zinc-300 text-zinc-500 items-center justify-center text-center p-6"><div><div class="text-5xl mb-3">🔌</div><p class="font-semibold">PV-TOXL-02</p><p class="text-xs mt-2" data-i18n="imageComingSoon">الصورة المرجعية ستظهر هنا</p></div></div>
+								</div>
+							</div>
+							<div class="p-6 lg:p-8 order-2 lg:order-1">
+								<div class="flex items-center gap-3 mb-5">
+									<span class="inline-flex w-10 h-10 rounded-xl bg-yellow-400/15 text-yellow-300 items-center justify-center">🔌</span>
+									<div>
+										<h3 class="text-2xl font-bold">PV-TOXL-02 Solar DC Connector</h3>
+										<p class="text-zinc-400 text-sm" data-i18n="previewPvLabel">موصلات شمسية DC عالية الاعتمادية للتوصيل الآمن</p>
+									</div>
+								</div>
+								<div class="overflow-x-auto rounded-2xl border border-zinc-800"><table class="w-full text-sm"><tbody class="divide-y divide-zinc-800 text-zinc-300"><tr><td class="p-3 font-medium text-zinc-200">Rated current</td><td class="p-3">30A or 50A</td></tr><tr><td class="p-3 font-medium text-zinc-200">Rated voltage</td><td class="p-3">1500VDC(IEC) / DC(UL)</td></tr><tr><td class="p-3 font-medium text-zinc-200">Ambient temperature range</td><td class="p-3">-40℃ ~ +90℃</td></tr><tr><td class="p-3 font-medium text-zinc-200">Degree of protection</td><td class="p-3">P67 mated / IP2X unmated</td></tr><tr><td class="p-3 font-medium text-zinc-200">Contact resistance</td><td class="p-3">0.5mΩ</td></tr><tr><td class="p-3 font-medium text-zinc-200">Contact material</td><td class="p-3">Copper, tin plated</td></tr><tr><td class="p-3 font-medium text-zinc-200">Locking system</td><td class="p-3">Snap-in (nur/only MC4)</td></tr><tr><td class="p-3 font-medium text-zinc-200">Flame class</td><td class="p-3">UL94-HB / UL94-VO</td></tr><tr><td class="p-3 font-medium text-zinc-200">Cable size</td><td class="p-3">2.5-10mm²</td></tr></tbody></table></div>
+							</div>
+						</div>
+					</article>
+
+					<article class="rounded-3xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
+						<div class="grid lg:grid-cols-2 gap-0">
+							<div class="bg-white min-h-[360px] p-8 flex items-center justify-center">
+								<div class="w-full max-w-md aspect-[4/3] rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-100 shadow-inner flex items-center justify-center p-6 overflow-hidden relative">
+									<img src="assets/images/PV-TOXL-03 Solar Dc Connector.png" alt="PV-TOXL-03 Solar DC Connector" class="max-w-full max-h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+									<div class="hidden absolute inset-6 rounded-2xl border-2 border-dashed border-zinc-300 text-zinc-500 items-center justify-center text-center p-6"><div><div class="text-5xl mb-3">🔌</div><p class="font-semibold">PV-TOXL-03</p><p class="text-xs mt-2" data-i18n="imageComingSoon">الصورة المرجعية ستظهر هنا</p></div></div>
+								</div>
+							</div>
+							<div class="p-6 lg:p-8">
+								<div class="flex items-center gap-3 mb-5">
+									<span class="inline-flex w-10 h-10 rounded-xl bg-yellow-400/15 text-yellow-300 items-center justify-center">🔌</span>
+									<div>
+										<h3 class="text-2xl font-bold">PV-TOXL-03 Solar DC Connector</h3>
+										<p class="text-zinc-400 text-sm" data-i18n="previewPvLabel">موصلات شمسية DC عالية الاعتمادية للتوصيل الآمن</p>
+									</div>
+								</div>
+								<div class="overflow-x-auto rounded-2xl border border-zinc-800"><table class="w-full text-sm"><tbody class="divide-y divide-zinc-800 text-zinc-300"><tr><td class="p-3 font-medium text-zinc-200">Rated current</td><td class="p-3">30A or 50A</td></tr><tr><td class="p-3 font-medium text-zinc-200">Rated voltage</td><td class="p-3">1500VDC(IEC) / DC(UL)</td></tr><tr><td class="p-3 font-medium text-zinc-200">Ambient temperature range</td><td class="p-3">-40℃ ~ +90℃</td></tr><tr><td class="p-3 font-medium text-zinc-200">Degree of protection</td><td class="p-3">P67 mated / IP2X unmated</td></tr><tr><td class="p-3 font-medium text-zinc-200">Contact resistance</td><td class="p-3">0.5mΩ</td></tr><tr><td class="p-3 font-medium text-zinc-200">Contact material</td><td class="p-3">Copper, tin plated</td></tr><tr><td class="p-3 font-medium text-zinc-200">Locking system</td><td class="p-3">Snap-in (nur/only MC4)</td></tr><tr><td class="p-3 font-medium text-zinc-200">Flame class</td><td class="p-3">UL94-HB / UL94-VO</td></tr><tr><td class="p-3 font-medium text-zinc-200">Cable size</td><td class="p-3">2.5-10mm²</td></tr></tbody></table></div>
+							</div>
+						</div>
+					</article>
+
+					<article class="rounded-3xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
+						<div class="grid lg:grid-cols-2 gap-0">
+							<div class="bg-white min-h-[360px] p-8 flex items-center justify-center order-1 lg:order-2">
+								<div class="w-full max-w-md aspect-[4/3] rounded-2xl border border-zinc-200 bg-gradient-to-br from-white to-zinc-100 shadow-inner flex items-center justify-center p-6 overflow-hidden relative">
+									<img src="assets/images/PV-TOXL-04 Solar Dc Connector.png" alt="PV-TOXL-04 Solar DC Connector" class="max-w-full max-h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+									<div class="hidden absolute inset-6 rounded-2xl border-2 border-dashed border-zinc-300 text-zinc-500 items-center justify-center text-center p-6"><div><div class="text-5xl mb-3">🔌</div><p class="font-semibold">PV-TOXL-04</p><p class="text-xs mt-2" data-i18n="imageComingSoon">الصورة المرجعية ستظهر هنا</p></div></div>
+								</div>
+							</div>
+							<div class="p-6 lg:p-8 order-2 lg:order-1">
+								<div class="flex items-center gap-3 mb-5">
+									<span class="inline-flex w-10 h-10 rounded-xl bg-yellow-400/15 text-yellow-300 items-center justify-center">🔌</span>
+									<div>
+										<h3 class="text-2xl font-bold">PV-TOXL-04 Solar DC Connector</h3>
+										<p class="text-zinc-400 text-sm" data-i18n="previewPvLabel">موصلات شمسية DC عالية الاعتمادية للتوصيل الآمن</p>
+									</div>
+								</div>
+								<div class="overflow-x-auto rounded-2xl border border-zinc-800"><table class="w-full text-sm"><tbody class="divide-y divide-zinc-800 text-zinc-300"><tr><td class="p-3 font-medium text-zinc-200">Rated current</td><td class="p-3">30A or 50A</td></tr><tr><td class="p-3 font-medium text-zinc-200">Rated voltage</td><td class="p-3">1000VDC(IEC) / DC(UL)</td></tr><tr><td class="p-3 font-medium text-zinc-200">Ambient temperature range</td><td class="p-3">-40℃ ~ +90℃</td></tr><tr><td class="p-3 font-medium text-zinc-200">Degree of protection</td><td class="p-3">P67 mated / IP2X unmated</td></tr><tr><td class="p-3 font-medium text-zinc-200">Contact resistance</td><td class="p-3">0.5mΩ</td></tr><tr><td class="p-3 font-medium text-zinc-200">Contact material</td><td class="p-3">Copper, tin plated</td></tr><tr><td class="p-3 font-medium text-zinc-200">Locking system</td><td class="p-3">Snap-in (nur/only MC4)</td></tr><tr><td class="p-3 font-medium text-zinc-200">Flame class</td><td class="p-3">UL94-HB / UL94-VO</td></tr><tr><td class="p-3 font-medium text-zinc-200">Cable size</td><td class="p-3">2.5-6mm²</td></tr></tbody></table></div>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="py-16 border-t border-zinc-900 bg-zinc-900/30">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="mb-10 max-w-3xl">
+					<h2 class="text-3xl font-bold" data-i18n="contactTitle">تواصل معنا</h2>
+					<p class="text-zinc-400 mt-3" data-i18n="contactDesc">للاستفسار وطلب الأسعار، تواصل معنا مباشرة عبر الواتساب أو قم بزيارتنا في شارع الصناعة - بغداد.</p>
+				</div>
+
+				<div class="grid lg:grid-cols-5 gap-8 items-start">
+					<div class="lg:col-span-2 space-y-4">
+						<div class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
+							<p class="text-zinc-400 text-sm" data-i18n="contactWhatsappLabel">واتساب</p>
+							<p class="mt-2 text-2xl font-bold">07700467159</p>
+							<a href="https://wa.me/9647700467159" target="_blank" rel="noreferrer" class="mt-5 inline-flex items-center justify-center px-5 py-3 rounded-lg bg-yellow-400 text-zinc-900 font-semibold hover:bg-yellow-300" data-i18n="contactWhatsappBtn">راسلنا على واتساب</a>
+						</div>
+						<div class="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 space-y-3 text-zinc-300 text-sm">
+							<p data-i18n="contactAddr">📍 شارع الصناعة - بغداد</p>
+							<p>📞 07700467159</p>
+							<p data-i18n="contactHours">🕒 متاحون للرد على واتساب خلال أوقات الدوام</p>
+						</div>
+					</div>
+
+					<div class="lg:col-span-3 rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900/50">
+						<div class="p-5 border-b border-zinc-800">
+							<h3 class="text-xl font-semibold" data-i18n="mapTitle">موقعنا على الخريطة</h3>
+							<p class="mt-2 text-zinc-400 text-sm" data-i18n="mapDesc">الموقع التقريبي: شارع الصناعة، بغداد</p>
+						</div>
+						<iframe
+							title="Baghdad Industrial Street Map"
+							class="w-full h-[420px]"
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							src="https://www.google.com/maps?q=%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D8%A9%20%D8%A8%D8%BA%D8%AF%D8%A7%D8%AF&output=embed">
+						</iframe>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="border-t border-zinc-800 py-6 text-center text-sm text-zinc-500">
+		© 2026 TOXL. <span data-i18n="footerRight">جميع الحقوق محفوظة.</span>
+	</footer>
+
+	<script>
+		const t = {
+			ar: {
+				tagline: "وفر المال والطاقة",
+				topbarAddress: "📍 شارع الصناعة - بغداد",
+				topbarWhatsapp: "راسلنا على واتساب",
+				navHome: "الرئيسية",
+				navProducts: "المنتجات",
+				navSpecs: "المواصفات الفنية",
+				navContact: "تواصل معنا",
+				heroBadge: "حلول كهربائية وطاقة شمسية موثوقة",
+				heroTitle: "Save Money & Energy مع TOXL",
+				heroDesc: "نوفر منتجات حماية وتحويل وتوزيع كهربائي عالية الأداء لأنظمة الطاقة الشمسية والتطبيقات الصناعية والسكنية.",
+				statProductsLabel: "المنتجات",
+				statLocationLabel: "الموقع",
+				statLocationValue: "شارع الصناعة",
+				statContactLabel: "التواصل",
+				heroBtnProducts: "استعرض المنتجات",
+				heroBtnContact: "اطلب عبر واتساب",
+				quickProductsTitle: "استعراض سريع",
+				quickProductsDesc: "اذهب مباشرة إلى المنتجات الرئيسية والفئات المتوفرة.",
+				quickCatalogTitle: "تفاصيل المنتجات",
+				quickCatalogDesc: "اطّلع على المواصفات الفنية والصور المرجعية لأبرز منتجات TOXL.",
+				quickContactTitle: "الوصول السريع",
+				quickContactDesc: "تواصل على واتساب واعرف موقعنا على الخريطة.",
+				productsTitle: "المنتجات الرئيسية",
+				productsDesc: "تصنيف منتجات TOXL وفق الكتالوج المرفق.",
+				dcDesc: "قواطع تيار مستمر مخصصة لأنظمة الطاقة الشمسية.",
+				mccbDesc: "قواطع حالة مصبوبة بآلية فصل حرارية مغناطيسية.",
+				atsDesc: "تحويل مصدر الطاقة بسرعة وكفاءة لتأمين الاستمرارية.",
+				dbDesc: "صناديق توزيع عملية للتطبيقات التجارية والسكنية.",
+				specsTitle: "المواصفات الفنية",
+				specsDesc: "مقارنة سريعة بين الفئات المختلفة.",
+				thCategory: "الفئة",
+				thCurrent: "التيار المقنن",
+				thVoltage: "الجهد",
+				thFeatures: "أبرز المزايا",
+				row1Feat: "أقطاب 1P–4P، حماية IP20",
+				row2Feat: "Trip حراري مغناطيسي وملحقات متعددة",
+				row3Feat: "سرعة تحويل أقل من 50ms",
+				row4Current: "حسب المقاس",
+				row4Voltage: "حسب التطبيق",
+				row4Feat: "ABS + PC، سكة قابلة للرفع",
+				previewTitle: "تفاصيل المنتجات",
+				previewDesc: "استعرض المواصفات الفنية والصور المرجعية لمجموعة من منتجات TOXL المختارة.",
+				previewDcLabel: "قاطع تيار مستمر لأنظمة الطاقة الشمسية",
+				previewMccbLabel: "قاطع حالة مصبوبة بخصائص فصل حرارية مغناطيسية",
+				previewAtsLabel: "مفتاح تحويل أوتوماتيكي لسرعة التحويل واستمرارية الطاقة",
+				previewHtLabel: "صندوق توزيع بإطار ABS وغطاء شفاف PC للتطبيقات السكنية والتجارية",
+				previewPvLabel: "موصلات شمسية DC عالية الاعتمادية للتوصيل الآمن",
+				imageComingSoon: "الصورة المرجعية ستظهر هنا",
+				contactTitle: "تواصل معنا",
+				contactDesc: "للاستفسار وطلب الأسعار، تواصل معنا مباشرة عبر الواتساب أو قم بزيارتنا في شارع الصناعة - بغداد.",
+				contactWhatsappLabel: "واتساب",
+				contactWhatsappBtn: "راسلنا على واتساب",
+				contactAddr: "📍 شارع الصناعة - بغداد",
+				contactHours: "🕒 متاحون للرد على واتساب خلال أوقات الدوام",
+				mapTitle: "موقعنا على الخريطة",
+				mapDesc: "الموقع التقريبي: شارع الصناعة، بغداد",
+				formName: "الاسم",
+				formEmail: "البريد الإلكتروني",
+				formMessage: "رسالتك",
+				formSend: "إرسال",
+				footerRight: "جميع الحقوق محفوظة."
+			},
+			en: {
+				tagline: "Save Money & Energy",
+				topbarAddress: "📍 Al-Sinaa Street - Baghdad",
+				topbarWhatsapp: "Chat on WhatsApp",
+				navHome: "Home",
+				navProducts: "Products",
+				navSpecs: "Technical Specs",
+				navContact: "Contact",
+				heroBadge: "Reliable Electrical & Solar Solutions",
+				heroTitle: "Save Money & Energy with TOXL",
+				heroDesc: "We provide high-performance protection, transfer, and distribution products for solar, industrial, and residential applications.",
+				statProductsLabel: "Products",
+				statLocationLabel: "Location",
+				statLocationValue: "Al-Sinaa Street",
+				statContactLabel: "Contact",
+				heroBtnProducts: "View Products",
+				heroBtnContact: "Order via WhatsApp",
+				quickProductsTitle: "Quick View",
+				quickProductsDesc: "Jump directly to the main products and available categories.",
+				quickCatalogTitle: "Product Details",
+				quickCatalogDesc: "Explore technical specifications and reference images for TOXL's featured products.",
+				quickContactTitle: "Quick Access",
+				quickContactDesc: "Reach us on WhatsApp and find us on the map.",
+				productsTitle: "Main Products",
+				productsDesc: "TOXL product categories based on the provided catalog.",
+				dcDesc: "DC breakers designed for solar power systems.",
+				mccbDesc: "Molded case breakers with thermal-magnetic protection.",
+				atsDesc: "Fast and efficient source transfer for continuity.",
+				dbDesc: "Practical distribution enclosures for many environments.",
+				specsTitle: "Technical Specifications",
+				specsDesc: "Quick comparison between product categories.",
+				thCategory: "Category",
+				thCurrent: "Rated Current",
+				thVoltage: "Voltage",
+				thFeatures: "Highlights",
+				row1Feat: "1P–4P poles, IP20 protection",
+				row2Feat: "Thermal-magnetic trip with accessories",
+				row3Feat: "Transfer speed below 50ms",
+				row4Current: "By size",
+				row4Voltage: "By application",
+				row4Feat: "ABS + PC, liftable rail",
+				previewTitle: "Product Details",
+				previewDesc: "Explore technical specifications and reference images for a selected range of TOXL products.",
+				previewDcLabel: "DC breaker for solar power systems",
+				previewMccbLabel: "Molded case breaker with thermal-magnetic trip characteristics",
+				previewAtsLabel: "Automatic transfer switch for fast switching and power continuity",
+				previewHtLabel: "Distribution box with ABS body and transparent PC cover for residential and commercial use",
+				previewPvLabel: "Reliable solar DC connectors for safe and robust connections",
+				imageComingSoon: "Reference image will appear here",
+				contactTitle: "Contact Us",
+				contactDesc: "For inquiries and pricing, contact us directly via WhatsApp or visit us on Al-Sinaa Street, Baghdad.",
+				contactWhatsappLabel: "WhatsApp",
+				contactWhatsappBtn: "Chat on WhatsApp",
+				contactAddr: "📍 Al-Sinaa Street - Baghdad",
+				contactHours: "🕒 We reply on WhatsApp during business hours",
+				mapTitle: "Our Location on the Map",
+				mapDesc: "Approximate location: Al-Sinaa Street, Baghdad",
+				formName: "Name",
+				formEmail: "Email",
+				formMessage: "Message",
+				formSend: "Send",
+				footerRight: "All rights reserved."
+			}
+		};
+
+		const setLang = (lang) => {
+			document.documentElement.lang = lang;
+			document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+			document.querySelectorAll("[data-i18n]").forEach((el) => {
+				const key = el.getAttribute("data-i18n");
+				if (t[lang][key]) el.textContent = t[lang][key];
+			});
+			document.getElementById("langToggle").textContent = lang === "ar" ? "EN" : "AR";
+		};
+
+		let currentLang = "ar";
+		document.getElementById("langToggle").addEventListener("click", () => {
+			currentLang = currentLang === "ar" ? "en" : "ar";
+			setLang(currentLang);
+		});
+
+		setLang(currentLang);
+	</script>
+</body>
+</html>

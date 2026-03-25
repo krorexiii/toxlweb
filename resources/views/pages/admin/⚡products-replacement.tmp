@@ -1,0 +1,318 @@
+<?php
+
+use App\Models\Language;
+use App\Models\Product;
+use App\Models\ProductTranslation;
+use Illuminate\Support\Str;
+use Livewire\Attributes\Computed;
+use Livewire\Attributes\Title;
+use Livewire\Attributes\Validate;
+use Livewire\Component;
+
+new #[Title('Products')] class extends Component {
+    public ?int $editingProductId = null;
+
+    #[Validate('required|string|max:255', onUpdate: false)]
+    public string $sku = '';
+
+    #[Validate('nullable|url|max:1000', onUpdate: false)]
+    public string $image_path = '';
+
+    #[Validate('nullable|string', onUpdate: false)]
+    public string $gallery_text = '';
+
+    #[Validate('nullable|string', onUpdate: false)]
+    public string $specifications_text = '';
+
+    #[Validate('nullable|integer|min:0', onUpdate: false)]
+    public int|string $sort_order = 0;
+
+    public bool $is_active = true;
+    public bool $is_featured = false;
+
+    #[Validate('required|string|max:255', onUpdate: false)]
+    public string $name_ar = '';
+
+    #[Validate('nullable|string|max:255', onUpdate: false)]
+    public string $short_description_ar = '';
+
+    #[Validate('nullable|string', onUpdate: false)]
+    public string $description_ar = '';
+
+    #[Validate('nullable|string', onUpdate: false)]
+    public string $features_ar_text = '';
+
+    #[Validate('required|string|max:255', onUpdate: false)]
+    public string $name_en = '';
+
+    #[Validate('nullable|string|max:255', onUpdate: false)]
+    public string $short_description_en = '';
+
+    #[Validate('nullable|string', onUpdate: false)]
+    public string $description_en = '';
+
+    #[Validate('nullable|string', onUpdate: false)]
+    public string $features_en_text = '';
+
+    #[Computed]
+    public function products()
+    {
+        return Product::query()->with('translations.language')->orderBy('sort_order')->orderBy('id')->get();
+    }
+
+    public function mount(): void
+    {
+        $this->resetForm();
+    }
+
+    public function edit(int $productId): void
+    {
+        $product = Product::query()->with('translations.language')->findOrFail($productId);
+
+        $this->editingProductId = $product->id;
+        $this->sku = $product->sku ?? '';
+        $this->image_path = $product->image_path ?? '';
+        $this->gallery_text = implode(PHP_EOL, $product->gallery ?? []);
+        $this->specifications_text = implode(PHP_EOL, collect($product->specifications ?? [])->map(function ($spec) {
+            return data_get($spec, 'label').': '.data_get($spec, 'value');
+        })->all());
+        $this->sort_order = $product->sort_order;
+        $this->is_active = $product->is_active;
+        $this->is_featured = $product->is_featured;
+
+        $arabic = $product->translations->firstWhere('language.code', 'ar');
+        $english = $product->translations->firstWhere('language.code', 'en');
+
+        $this->name_ar = $arabic?->name ?? '';
+        $this->short_description_ar = $arabic?->short_description ?? '';
+        $this->description_ar = $arabic?->description ?? '';
+        $this->features_ar_text = implode(PHP_EOL, $arabic?->features ?? []);
+
+        $this->name_en = $english?->name ?? '';
+        $this->short_description_en = $english?->short_description ?? '';
+        $this->description_en = $english?->description ?? '';
+        $this->features_en_text = implode(PHP_EOL, $english?->features ?? []);
+    }
+
+    public function createNew(): void
+    {
+        $this->resetForm();
+    }
+
+    public function save(): void
+    {
+        $validated = $this->validate();
+
+        $product = Product::query()->updateOrCreate(
+            ['id' => $this->editingProductId],
+            [
+                'slug' => $this->existingSlug() ?? Str::slug($validated['name_en'] ?: $validated['name_ar']).'-'.Str::lower(Str::random(4)),
+                'sku' => $validated['sku'],
+                'image_path' => $validated['image_path'] ?: null,
+                'gallery' => $this->linesToArray($validated['gallery_text']),
+                'sort_order' => (int) $validated['sort_order'],
+                'is_active' => $this->is_active,
+                'is_featured' => $this->is_featured,
+                'specifications' => $this->specificationsToArray($validated['specifications_text']),
+            ]
+        );
+
+        $this->syncTranslation($product, 'ar', [
+            'name' => $validated['name_ar'],
+            'short_description' => $validated['short_description_ar'] ?: null,
+            'description' => $validated['description_ar'] ?: null,
+            'features' => $this->linesToArray($validated['features_ar_text']),
+        ]);
+
+        $this->syncTranslation($product, 'en', [
+            'name' => $validated['name_en'],
+            'short_description' => $validated['short_description_en'] ?: null,
+            'description' => $validated['description_en'] ?: null,
+            'features' => $this->linesToArray($validated['features_en_text']),
+        ]);
+
+        $this->editingProductId = $product->id;
+        unset($this->products);
+        $this->dispatch('product-saved');
+    }
+
+    public function toggleStatus(int $productId): void
+    {
+        $product = Product::query()->findOrFail($productId);
+        $product->update(['is_active' => ! $product->is_active]);
+
+        if ($this->editingProductId === $productId) {
+            $this->is_active = $product->is_active;
+        }
+
+        unset($this->products);
+    }
+
+    private function existingSlug(): ?string
+    {
+        if (! $this->editingProductId) {
+            return null;
+        }
+
+        return Product::query()->find($this->editingProductId)?->slug;
+    }
+
+    private function syncTranslation(Product $product, string $code, array $data): void
+    {
+        $languageId = Language::query()->where('code', $code)->value('id');
+
+        if (! $languageId) {
+            return;
+        }
+
+        ProductTranslation::query()->updateOrCreate(
+            [
+                'product_id' => $product->id,
+                'language_id' => $languageId,
+            ],
+            $data
+        );
+    }
+
+    private function linesToArray(?string $value): array
+    {
+        return collect(preg_split('/\r\n|\r|\n/', $value ?? ''))
+            ->map(fn ($line) => trim($line))
+            ->filter()
+            ->values()
+            ->all();
+    }
+
+    private function specificationsToArray(?string $value): array
+    {
+        return collect(preg_split('/\r\n|\r|\n/', $value ?? ''))
+            ->map(fn ($line) => trim($line))
+            ->filter()
+            ->map(function ($line) {
+                [$label, $specValue] = array_pad(explode(':', $line, 2), 2, '');
+
+                return [
+                    'label' => trim($label),
+                    'value' => trim($specValue),
+                ];
+            })
+            ->filter(fn ($item) => $item['label'] !== '' || $item['value'] !== '')
+            ->values()
+            ->all();
+    }
+
+    private function resetForm(): void
+    {
+        $this->editingProductId = null;
+        $this->sku = '';
+        $this->image_path = '';
+        $this->gallery_text = '';
+        $this->specifications_text = '';
+        $this->sort_order = 0;
+        $this->is_active = true;
+        $this->is_featured = false;
+        $this->name_ar = '';
+        $this->short_description_ar = '';
+        $this->description_ar = '';
+        $this->features_ar_text = '';
+        $this->name_en = '';
+        $this->short_description_en = '';
+        $this->description_en = '';
+        $this->features_en_text = '';
+    }
+}; ?>
+
+<section class="w-full">
+    <div class="mb-6 flex items-start justify-between gap-4">
+        <div>
+            <flux:heading size="xl">إدارة المنتجات</flux:heading>
+            <flux:subheading>إضافة وتعديل المنتجات الحالية مع ترجمة عربية وإنجليزية ضمن CRUD أولية داخل الداشبورد.</flux:subheading>
+        </div>
+        <div class="flex items-center gap-3">
+            <flux:badge color="sky">{{ $this->products->count() }} منتج</flux:badge>
+            <flux:button variant="primary" wire:click="createNew">منتج جديد</flux:button>
+        </div>
+    </div>
+
+    <div class="grid gap-6 xl:grid-cols-5">
+        <div class="space-y-4 xl:col-span-3">
+            @forelse ($this->products as $product)
+                @php($translation = $product->translations->first())
+                <div class="rounded-3xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+                    <div class="flex flex-col gap-4 lg:flex-row">
+                        <img src="{{ $product->galleryImages()[0] ?? 'https://placehold.co/800x600/18181b/facc15?text=Product' }}" alt="{{ $translation?->name }}" class="h-44 w-full rounded-2xl object-cover lg:w-52">
+
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-start justify-between gap-3">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-zinc-900 dark:text-white">{{ $translation?->name ?? $product->slug }}</h3>
+                                    <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">{{ $translation?->short_description }}</p>
+                                </div>
+
+                                <div class="flex gap-2">
+                                    <flux:button size="sm" variant="ghost" wire:click="edit({{ $product->id }})">تعديل</flux:button>
+                                    <flux:button size="sm" variant="ghost" wire:click="toggleStatus({{ $product->id }})">{{ $product->is_active ? 'تعطيل' : 'تفعيل' }}</flux:button>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 flex flex-wrap items-center gap-2 text-xs">
+                                <span class="rounded-full bg-zinc-100 px-3 py-1 dark:bg-zinc-800">{{ $product->sku ?: 'No SKU' }}</span>
+                                <flux:badge :color="$product->is_active ? 'lime' : 'zinc'">{{ $product->is_active ? 'مفعّل' : 'معطّل' }}</flux:badge>
+                                <flux:badge :color="$product->is_featured ? 'amber' : 'zinc'">{{ $product->is_featured ? 'مميز' : 'عادي' }}</flux:badge>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <p class="text-sm text-zinc-500">لا توجد منتجات حاليًا.</p>
+            @endforelse
+        </div>
+
+        <div class="rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-zinc-900 xl:col-span-2">
+            <h2 class="text-lg font-semibold text-zinc-900 dark:text-white">{{ $editingProductId ? 'تعديل المنتج' : 'إضافة منتج' }}</h2>
+            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">النسخة الحالية تدعم الحقول الأساسية والترجمة العربية والإنجليزية.</p>
+
+            <form wire:submit="save" class="mt-6 space-y-5">
+                <div class="grid gap-4 md:grid-cols-2">
+                    <flux:input wire:model="sku" label="SKU" type="text" required />
+                    <flux:input wire:model="sort_order" label="الترتيب" type="number" min="0" />
+                </div>
+
+                <flux:input wire:model="image_path" label="رابط الصورة الرئيسية" type="url" />
+                <flux:textarea wire:model="gallery_text" label="روابط صور المعرض" rows="4" placeholder="ضع كل رابط في سطر مستقل" />
+                <flux:textarea wire:model="specifications_text" label="المواصفات" rows="4" placeholder="Voltage: 1000V&#10;Current: 63A" />
+
+                <div class="grid gap-4 md:grid-cols-2">
+                    <flux:checkbox wire:model="is_active" label="المنتج مفعّل" />
+                    <flux:checkbox wire:model="is_featured" label="المنتج مميز" />
+                </div>
+
+                <div class="rounded-2xl border border-zinc-200 p-4 dark:border-zinc-700">
+                    <flux:heading size="lg">الترجمة العربية</flux:heading>
+                    <div class="mt-4 space-y-4">
+                        <flux:input wire:model="name_ar" label="الاسم بالعربية" type="text" required />
+                        <flux:input wire:model="short_description_ar" label="وصف مختصر بالعربية" type="text" />
+                        <flux:textarea wire:model="description_ar" label="الوصف الكامل بالعربية" rows="4" />
+                        <flux:textarea wire:model="features_ar_text" label="المميزات بالعربية" rows="4" placeholder="ضع كل ميزة في سطر مستقل" />
+                    </div>
+                </div>
+
+                <div class="rounded-2xl border border-zinc-200 p-4 dark:border-zinc-700">
+                    <flux:heading size="lg">English translation</flux:heading>
+                    <div class="mt-4 space-y-4">
+                        <flux:input wire:model="name_en" label="Name in English" type="text" required />
+                        <flux:input wire:model="short_description_en" label="Short description in English" type="text" />
+                        <flux:textarea wire:model="description_en" label="Full description in English" rows="4" />
+                        <flux:textarea wire:model="features_en_text" label="Features in English" rows="4" placeholder="One feature per line" />
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <flux:button variant="primary" type="submit">حفظ المنتج</flux:button>
+                    <flux:button variant="ghost" type="button" wire:click="createNew">تفريغ النموذج</flux:button>
+                    <x-action-message on="product-saved">تم حفظ المنتج.</x-action-message>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
