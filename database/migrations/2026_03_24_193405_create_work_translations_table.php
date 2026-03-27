@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -11,18 +10,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('work_translations', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('work_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('language_id')->constrained()->cascadeOnDelete();
-            $table->string('title');
-            $table->string('short_description')->nullable();
-            $table->longText('description')->nullable();
-            $table->json('highlights')->nullable();
-            $table->timestamps();
-
-            $table->unique(['work_id', 'language_id']);
-        });
+        // noop: migration moved to a later timestamp to ensure works table is
+        // created before translations. Left as no-op to preserve migration history.
     }
 
     /**
@@ -30,6 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('work_translations');
+        // noop
     }
 };
