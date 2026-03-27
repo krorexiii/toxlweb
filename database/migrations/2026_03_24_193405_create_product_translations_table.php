@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -10,9 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // noop: this migration was moved to a different timestamp file to ensure
-        // the products table is created before the translations. Kept as a no-op
-        // to preserve historic migration list.
+        // No-op: kept for backward compatibility after migration reorder.
     }
 
     /**
@@ -20,6 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // noop
+        // No-op.
     }
 };
